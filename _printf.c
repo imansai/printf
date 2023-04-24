@@ -36,7 +36,10 @@ int _printf(const char *format, ...)
 			i++;
 		}
 		else
+		{
+			charcount++;
 			_putchar(format[i]);
+		}
 		i++;
 	}
 	_putchar('\n');
