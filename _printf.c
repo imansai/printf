@@ -12,27 +12,27 @@
 
 int _printf(const char *format, ...)
 {
-    int charcount, i;
-    va_list ap;
-    char *current;
-    char mod;
+	int charcount, i;
+	va_list ap;
+	char *current;
+	char mod;
 
-    charcount = 0;
-    i = 0;
+	charcount = 0;
+	i = 0;
 
-    va_start(ap, format);
+	va_start(ap, format);
 
-    while (format[i] != '\0')
-    {
-        if (format[i] == '%' && format[i + 1] != '\0')
-        {
-            current = va_arg(ap, char *);
-            mod = format[i + 1];
-            charcount += get_fm_func(mod)(current);
-            i++;
-        }
-        i++;
-    }
-    _putchar('\n');
-    return charcount;
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%' && format[i + 1] != '\0')
+		{
+			current = va_arg(ap, char *);
+			mod = format[i + 1];
+			charcount += get_fm_func(mod)(current);
+			i++;
+		}
+		i++;
+	}
+	_putchar('\n');
+	return (charcount);
 }

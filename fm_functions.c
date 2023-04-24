@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _fm_char - Prints char
+ * fm_char - Prints char
  * @c: pointer to char
  * Return: number of characters printed (1)
  */
@@ -14,7 +14,7 @@ int fm_char(char *c)
 }
 
 /**
- * _fm_str - Prints str
+ * fm_str - Prints str
  * @str: pointer to str
  * Return: number of characters printed
  */
