@@ -14,8 +14,8 @@ int _printf(const char *format, ...)
 {
 	int charcount, i;
 	va_list ap;
-	char *current;
 	char mod;
+	va_list *ptrap = &ap;
 
 	charcount = 0;
 	i = 0;
@@ -26,11 +26,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			current = va_arg(ap, char *);
 			mod = format[i + 1];
-			charcount += get_fm_func(mod)(current);
+			if (format[i + 1] == 's')
+				charcount += get_fm_func(mod)(ptrap);
+
+			else if (format[i + 1] == 'c')
+				charcount += get_fm_func(mod)(ptrap);
+
 			i++;
 		}
+		else
+			_putchar(format[i]);
 		i++;
 	}
 	_putchar('\n');

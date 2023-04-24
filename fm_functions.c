@@ -1,26 +1,29 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
  * fm_char - Prints char
- * @c: pointer to char
+ * @ptr: ptr to function args
  * Return: number of characters printed (1)
  */
 
-int fm_char(char *c)
+int fm_char(va_list(*ptr))
 {
-	_putchar(*c);
+	char c = va_arg(*ptr, int);
 
+	_putchar(c);
 	return (1);
 }
 
 /**
  * fm_str - Prints str
- * @str: pointer to str
+ * @ptr: ptr to function args
  * Return: number of characters printed
  */
-int fm_str(char *str)
+int fm_str(va_list *ptr)
 {
 	int i = 0;
+	char *str = va_arg(*ptr, char *);
 
 	while (*str != '\0')
 	{
