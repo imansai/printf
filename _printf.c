@@ -42,6 +42,5 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	_putchar('\n');
 	return (charcount);
 }
