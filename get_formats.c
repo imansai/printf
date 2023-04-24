@@ -8,21 +8,21 @@
  */
 int (*get_fm_func(char s))(char *c)
 {
-    int i = 0;
+	int i = 0;
 
-    fm_t fm[] = {
-        {"c", fm_char},
-        {"s", fm_str},
-        {NULL, NULL}};
-    while (fm[i].fm != NULL)
-    {
-        if (s == *fm[i].fm)
-        {
-            return (fm[i].f);
-        }
-        i++;
-    }
-    fm_str("Error - unknown modifier : ");
-    _putchar(s);
-    exit(1);
+	fm_t fm[] = {
+		{"c", fm_char},
+		{"s", fm_str},
+		{NULL, NULL}};
+	while (fm[i].fm != NULL)
+	{
+		if (s == *fm[i].fm)
+		{
+			return (fm[i].f);
+		}
+		i++;
+	}
+	fm_str("Error - unknown modifier : ");
+	_putchar(s);
+	exit(1);
 }
