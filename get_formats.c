@@ -1,12 +1,14 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdarg.h>
 
 /**
  * get_fm_func - finds format to execute
  * @s: format
  * Return: NULL or function to execute
  */
-int (*get_fm_func(char s))(char *c)
+
+int (*get_fm_func(char s))(va_list(*ptr))
 {
 	int i = 0;
 
@@ -22,7 +24,7 @@ int (*get_fm_func(char s))(char *c)
 		}
 		i++;
 	}
-	fm_str("Error - unknown modifier : ");
+	_putchar('0');
 	_putchar(s);
 	exit(1);
 }
