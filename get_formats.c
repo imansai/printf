@@ -17,12 +17,12 @@ int (*get_fm_func(char s))(char *c)
     while (fm[i].fm != NULL)
     {
         if (s == *fm[i].fm)
-
+        {
             return (fm[i].f);
+        }
         i++;
     }
     fm_str("Error - unknown modifier : ");
     _putchar(s);
-    _putchar('\n');
     exit(1);
 }
