@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
         {
             current = va_arg(ap, char *);
             mod = format[i + 1];
-            get_fm_func(mod)(current);
+            charcount += get_fm_func(mod)(current);
             i++;
         }
         i++;
