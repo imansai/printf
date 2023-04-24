@@ -30,7 +30,8 @@ int _printf(const char *format, ...)
 
 			else if (format[i + 1] == 'c')
 				charcount += get_fm_func(mod)(ptrap);
-
+			else if (format[i + 1] == '%')
+				_putchar('%');
 			i++;
 		}
 		else
