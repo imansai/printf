@@ -5,6 +5,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int fm_char(char *c);
 int fm_str(char *str);
+int (*get_fm_func(char s))(char *c);
 
 /**
  * struct fm - Struct fm
