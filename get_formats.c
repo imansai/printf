@@ -15,8 +15,6 @@ int (*get_fm_func(char s))(va_list(*ptr))
 	fm_t fm[] = {
 		{"c", fm_char},
 		{"s", fm_str},
-		{"d", fm_dec},
-		{"i", fm_int},
 		{NULL, NULL}};
 	while (fm[i].fm != NULL)
 	{
