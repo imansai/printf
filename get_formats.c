@@ -24,7 +24,6 @@ int (*get_fm_func(char s))(va_list(*ptr))
 		}
 		i++;
 	}
-	_putchar('0');
 	_putchar(s);
 	exit(1);
 }

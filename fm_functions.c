@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * fm_char - Prints char
@@ -24,7 +25,16 @@ int fm_str(va_list *ptr)
 {
 	int i = 0;
 	char *str = va_arg(*ptr, char *);
-
+	if (str == NULL)
+	{
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+		return (6);
+	}
 	while (*str != '\0')
 	{
 		_putchar(*str);
