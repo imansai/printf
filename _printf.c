@@ -21,7 +21,6 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
-
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			mod = format[i + 1];
@@ -29,13 +28,17 @@ int _printf(const char *format, ...)
 				mod = format[i++ + 2];
 			if (mod == 's')
 				charcount += get_fm_func(mod)(ptrap);
-
 			else if (mod == 'c')
 				charcount += get_fm_func(mod)(ptrap);
 			else if (mod == '%')
 			{
 				_putchar('%');
 				charcount++;
+			}
+			else
+			{
+				_putchar('%');
+				_putchar(mod);
 			}
 			i++;
 		}
