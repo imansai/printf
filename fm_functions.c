@@ -58,6 +58,8 @@ int print2(char c)
 		_putchar(c);
 		return (2);
 	}
+	if (c == '\0')
+		return (0);
 	_putchar('%');
 	return (1);
 }
