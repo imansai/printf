@@ -5,6 +5,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print2(char c);
 int fm_char(va_list *ptr);
 int fm_str(va_list *ptr);
 int (*get_fm_func(char s))(va_list *ptr);
