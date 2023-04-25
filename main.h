@@ -8,6 +8,10 @@ int print2(char c);
 int fm_char(va_list *ptr);
 int fm_str(va_list *ptr);
 int (*get_fm_func(char s))(va_list *ptr);
+int fm_dec(va_list(*ptr));
+int fm_int(va_list(*ptr));
+int _putnbr(int nb);
+
 /**
  * struct fm - Struct fm
  *
