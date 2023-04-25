@@ -75,26 +75,25 @@ int _putnbr(int num)
 {
 	int count = 0;
 
-	if (num < 0)
+	if (num == INT_MIN)
 	{
-		if (num == INT_MIN)
-		{
-			putchar('-');
-			num = INT_MAX;
-			count++;
-		}
-		else
-		{
-			putchar('-');
-			num = -num;
-			count++;
-		}
+		putchar('-');
+		putchar('2');
+		num = 147483648;
+		count += 2;
+	}
+	else if (num < 0)
+	{
+		putchar('-');
+		num = -num;
+		count++;
 	}
 
 	if (num > 9)
 	{
 		count += _putnbr(num / 10);
 	}
+
 	putchar(num % 10 + '0');
 	count++;
 
