@@ -8,7 +8,7 @@ int _printf(const char *format, ...);
 int fm_char(va_list *ptr);
 int fm_str(va_list *ptr);
 int (*get_fm_func(char s))(va_list *ptr);
-
+void fm_perc(char *str);
 /**
  * struct fm - Struct fm
  *

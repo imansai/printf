@@ -8,10 +8,10 @@
  */
 
 int main()
-
 {
 	int len_1 = 0, len_2 = 0;
 
+	printf("Expected output:    ");
 	len_1 = printf("%");
 	printf("\n");
 	printf("Current output:     ");
@@ -43,6 +43,5 @@ int main()
 	printf("\n");
 	printf("Expected length:    [%d]\n", len_1);
 	printf("Current length:     [%d]\n", len_2);
-
-	return 0;
+	return (0);
 }
