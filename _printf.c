@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			mod = format[i + 1];
 			while (mod == ' ')
 				mod = format[i++ + 2];
-			if (mod == 's' || mod == 'c')
+			if (mod == 's' || mod == 'c' || mod == 'i' || mod == 'd')
 				charcount += get_fm_func(mod)(ptrap);
 			else if (mod == '%')
 			{
