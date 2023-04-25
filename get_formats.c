@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -17,6 +16,7 @@ int (*get_fm_func(char s))(va_list(*ptr))
 		{"s", fm_str},
 		{"d", fm_int},
 		{"i", fm_int},
+		{"b", fm_bin},
 		{NULL, NULL}};
 	while (fm[i].fm != NULL)
 	{
