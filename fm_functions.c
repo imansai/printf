@@ -67,8 +67,8 @@ int print2(char c)
 
 /**
  * _putnbr - Prints number
- * @nb: number to print
- * Return: void
+ * @num: number to print
+ * Return: int count
  */
 
 int _putnbr(int num)
