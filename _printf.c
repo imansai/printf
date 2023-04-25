@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 		}
 		else if (format[i] == '%' && format[i + 1] == '\0')
-			charcount--;
+			charcount = -1;
 		i++;
 	}
 	va_end(ap);
