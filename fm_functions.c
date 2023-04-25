@@ -77,14 +77,14 @@ int _putnbr(int num)
 
 	if (num == INT_MIN)
 	{
-		putchar('-');
-		putchar('2');
+		_putchar('-');
+		_putchar('2');
 		num = 147483648;
 		count += 2;
 	}
 	else if (num < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		num = -num;
 		count++;
 	}
@@ -94,7 +94,7 @@ int _putnbr(int num)
 		count += _putnbr(num / 10);
 	}
 
-	putchar(num % 10 + '0');
+	_putchar(num % 10 + '0');
 	count++;
 
 	return (count);
