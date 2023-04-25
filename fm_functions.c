@@ -44,3 +44,20 @@ int fm_str(va_list *ptr)
 
 	return (i);
 }
+
+/**
+ * print2- Prints % and char
+ * @c: char to print
+ * Return: number of characters printed
+ */
+int print2(char c)
+{
+	if (c != '%')
+	{
+		_putchar('%');
+		_putchar(c);
+		return (2);
+	}
+	_putchar('%');
+	return (1);
+}

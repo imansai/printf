@@ -21,25 +21,22 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
+
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			mod = format[i + 1];
-			while (mod == ' ' && format[i + 2] != '\0')
-				mod = format[i++ + 2];
+
 			if (mod == 's')
 				charcount += get_fm_func(mod)(ptrap);
+
 			else if (mod == 'c')
 				charcount += get_fm_func(mod)(ptrap);
 			else if (mod == '%')
 			{
-				_putchar('%');
-				charcount++;
+				charcount = print2('%');
 			}
 			else
-			{
-				_putchar('%');
-				_putchar(mod);
-			}
+				charcount += print2(mod);
 			i++;
 		}
 		else if (format[i] != '%')
@@ -48,7 +45,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 		}
 		else if (format[i] == '%' && format[i + 1] == '\0')
-			charcount = -1;
+			return (-1);
 		i++;
 	}
 	va_end(ap);
