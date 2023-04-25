@@ -25,6 +25,7 @@ int fm_str(va_list *ptr)
 {
 	int i = 0;
 	char *str = va_arg(*ptr, char *);
+
 	if (str == NULL)
 	{
 		_putchar('(');
@@ -42,15 +43,4 @@ int fm_str(va_list *ptr)
 	}
 
 	return (i);
-}
-
-/**
- * fm_str - Prints format %
- *
- * Return: number of characters printed
- */
-void fm_perc(char *str)
-{
-	if (str[1] == '%')
-		_putchar('%');
 }
