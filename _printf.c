@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _printf - Prints string with formating
@@ -22,6 +23,7 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
+
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			mod = format[i + 1];
@@ -30,10 +32,24 @@ int _printf(const char *format, ...)
 
 			else if (format[i + 1] == 'c')
 				charcount += get_fm_func(mod)(ptrap);
-
+			else if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				charcount++;
+			}
+			else if (format[i + 1] == '\0')
+			{
+				_putchar('\0');
+			}
+			else
+			{
+				_putchar('%');
+				charcount++;
+				i--;
+			}
 			i++;
 		}
-		else
+		else if (format[i] != '%')
 		{
 			charcount++;
 			_putchar(format[i]);
