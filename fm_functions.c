@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * fm_char - Prints char
@@ -62,4 +63,52 @@ int print2(char c)
 		return (0);
 	_putchar('%');
 	return (1);
+}
+
+/**
+ * _putnbr - Prints number
+ * @nb: number to print
+ * Return: void
+ */
+
+int _putnbr(int num)
+{
+	int count = 0;
+
+	if (num < 0)
+	{
+		if (num == INT_MIN)
+		{
+			putchar('-');
+			num = INT_MAX;
+			count++;
+		}
+		else
+		{
+			putchar('-');
+			num = -num;
+			count++;
+		}
+	}
+
+	if (num > 9)
+	{
+		count += _putnbr(num / 10);
+	}
+	putchar(num % 10 + '0');
+	count++;
+
+	return (count);
+}
+/**
+ * fm_int - Prints int
+ * @ptr: ptr to function args
+ * Return: number of characters printed (1)
+ */
+
+int fm_int(va_list(*ptr))
+{
+	int a = va_arg(*ptr, int);
+
+	return (_putnbr(a));
 }
