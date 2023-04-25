@@ -43,3 +43,14 @@ int fm_str(va_list *ptr)
 
 	return (i);
 }
+
+/**
+ * fm_str - Prints format %
+ *
+ * Return: number of characters printed
+ */
+void fm_perc(char *str)
+{
+	if (str[1] == '%')
+		_putchar('%');
+}

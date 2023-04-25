@@ -27,26 +27,22 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			mod = format[i + 1];
-			if (format[i + 1] == 's')
+			while (mod == ' ' && format[i + 2] != '\0')
+			{
+				i++;
+				mod = format[i + 2];
+			}
+			if (mod == 's')
 				charcount += get_fm_func(mod)(ptrap);
 
-			else if (format[i + 1] == 'c')
+			else if (mod == 'c')
 				charcount += get_fm_func(mod)(ptrap);
-			else if (format[i + 1] == '%')
+			else if (mod == '%')
 			{
 				_putchar('%');
 				charcount++;
 			}
-			else if (format[i + 1] == '\0')
-			{
-				_putchar('\0');
-			}
-			else
-			{
-				_putchar('%');
-				charcount++;
-				i--;
-			}
+
 			i++;
 		}
 		else if (format[i] != '%')
@@ -54,6 +50,10 @@ int _printf(const char *format, ...)
 			charcount++;
 			_putchar(format[i]);
 		}
+
+		else if (format[i] == '%' && format[i + 1] == '\0')
+			charcount--;
+
 		i++;
 	}
 	va_end(ap);
