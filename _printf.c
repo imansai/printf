@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _printf - Prints string with formating
@@ -16,6 +17,8 @@ int _printf(const char *format, ...)
 	va_list *ptrap = &ap;
 
 	va_start(ap, format);
+	if (format == NULL)
+		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
@@ -23,10 +26,7 @@ int _printf(const char *format, ...)
 			mod = format[i + 1];
 			while (mod == ' ')
 				mod = format[i++ + 2];
-			if (mod == 's')
-				charcount += get_fm_func(mod)(ptrap);
-
-			else if (mod == 'c')
+			if (mod == 's' || mod == 'c')
 				charcount += get_fm_func(mod)(ptrap);
 			else if (mod == '%')
 			{
