@@ -1,7 +1,5 @@
-#include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include <limits.h>
 
 /**
  * fm_char - Prints char
@@ -47,59 +45,6 @@ int fm_str(va_list *ptr)
 }
 
 /**
- * print2- Prints % and char
- * @c: char to print
- * Return: number of characters printed
- */
-int print2(char c)
-{
-	if (c != '%')
-	{
-		_putchar('%');
-		_putchar(c);
-		return (2);
-	}
-	if (c == '\0')
-		return (0);
-	_putchar('%');
-	return (1);
-}
-
-/**
- * _putnbr - Prints number
- * @num: number to print
- * Return: int count
- */
-
-int _putnbr(int num)
-{
-	int count = 0;
-
-	if (num == INT_MIN)
-	{
-		_putchar('-');
-		_putchar('2');
-		num = 147483648;
-		count += 2;
-	}
-	else if (num < 0)
-	{
-		_putchar('-');
-		num = -num;
-		count++;
-	}
-
-	if (num > 9)
-	{
-		count += _putnbr(num / 10);
-	}
-
-	_putchar(num % 10 + '0');
-	count++;
-
-	return (count);
-}
-/**
  * fm_int - Prints int
  * @ptr: ptr to function args
  * Return: number of characters printed (1)
@@ -110,4 +55,50 @@ int fm_int(va_list(*ptr))
 	int a = va_arg(*ptr, int);
 
 	return (_putnbr(a));
+}
+
+/**
+ * fm_bin - Prints int converted to binary
+ * @ptr: ptr to function args
+ * Return: number of characters printed (1)
+ */
+int fm_bin(va_list(*ptr))
+{
+	unsigned int a = va_arg(*ptr, int);
+	int comp = 0;
+	int pow = 1;
+	int exp = 0;
+	int charcount = 0;
+	int oddeven = a % 2;
+	a = a - a % 2;
+
+	while (pow < a)
+	{
+		pow *= 2;
+		exp += 1;
+	}
+	exp--;
+	pow = pow / 2;
+
+	while (exp != 0)
+	{
+		if (pow <= a)
+		{
+			a -= pow;
+			pow = pow / 2;
+			exp--;
+			_putchar('1');
+			charcount++;
+		}
+		else
+		{
+			_putchar('0');
+			exp--;
+			pow = pow / 2;
+
+			charcount++;
+		}
+	}
+	_putchar('0' + oddeven);
+	return (charcount);
 }
