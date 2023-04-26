@@ -71,6 +71,7 @@ int fm_bin(va_list(*ptr))
 	int exp = 0;
 	int charcount = 0;
 	int oddeven = a % 2;
+
 	a = a - a % 2;
 
 	while (pow < a)
