@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdarg.h>
 
 /**
  * get_fm_func - finds format to execute
