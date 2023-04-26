@@ -66,19 +66,11 @@ int fm_int(va_list(*ptr))
 int fm_bin(va_list(*ptr))
 {
 	unsigned int a = va_arg(*ptr, int);
-<<<<<<< HEAD
 	int comp = 0;
 	int pow = 1;
 	int exp = 0;
 	int charcount = 0;
 	int oddeven = a % 2;
-=======
-	unsigned int pow = 1;
-	int exp = 0;
-	int charcount = 0;
-	int oddeven = a % 2;
-
->>>>>>> 1c7cf50cfa322fda42e2eb31dd67776a080d9055
 	a = a - a % 2;
 
 	while (pow < a)
